@@ -20,7 +20,7 @@ const SortPopap = ({items}) => {
         setVisiblePopup(false)
     }
 
-    const activeLabel = items[activeItem]
+    const activeLabel = items[activeItem].name;
     React.useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
 
@@ -50,8 +50,8 @@ const SortPopap = ({items}) => {
             {visiblePopup && <div className="sort__popup">
                 <ul>
                     {
-                        items && items.map((name, index) => (
-                            <li className={activeItem === index ? 'active' : ''} onClick={() => onSelectItem(index)} key={`${name}_${index}`}>{name}</li>
+                        items && items.map((obj, index) => (
+                            <li className={activeItem === index ? 'active' : ''} onClick={() => onSelectItem(index)} key={`${obj.type}_${index}`}>{obj.name}</li>
                         ))
                     }
                 </ul>
